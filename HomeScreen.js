@@ -53,7 +53,7 @@ const HomeScreen = ({ navigation }) => {
         try {
             setLoading(true);
 
-            const database = getDatabase(undefined, 'https://plantmonitor-52b21-default-rtdb.europe-west1.firebasedatabase.app');
+            const database = getDatabase(undefined, 'linkofRealTimeDatabase');
             const dataRef = query(dbRef(database, 'data'), orderByChild('timestamp'), limitToLast(1));
             const snapshot = await get(dataRef);
 
@@ -93,7 +93,7 @@ const HomeScreen = ({ navigation }) => {
         try {
             setLoading(true);
 
-            const database = getDatabase(undefined, 'https://plantmonitor-52b21-default-rtdb.europe-west1.firebasedatabase.app');
+            const database = getDatabase(undefined, 'linkofRealTimeDatabase');
             const imageRef = dbRef(database, 'image');
 
             // Step 1: Send "1" to the 'image' field
@@ -143,7 +143,7 @@ const HomeScreen = ({ navigation }) => {
     // Function to start watering
     const startWatering = async () => {
         try {
-            const database = getDatabase(undefined, 'https://plantmonitor-52b21-default-rtdb.europe-west1.firebasedatabase.app');
+            const database = getDatabase(undefined, 'linkofRealTimeDatabase');
             const wateringRef = dbRef(database, 'watering');
             await set(wateringRef, 1); // Set watering to 1
             Alert.alert('Success', 'Watering started!');
@@ -156,7 +156,7 @@ const HomeScreen = ({ navigation }) => {
     // Function to stop watering
     const stopWatering = async () => {
         try {
-            const database = getDatabase(undefined, 'https://plantmonitor-52b21-default-rtdb.europe-west1.firebasedatabase.app');
+            const database = getDatabase(undefined, 'linkofRealTimeDatabase');
             const wateringRef = dbRef(database, 'watering');
             await set(wateringRef, 0); // Set watering to 0
             Alert.alert('Success', 'Watering stopped!');
@@ -169,7 +169,7 @@ const HomeScreen = ({ navigation }) => {
     // Handle modal input submission
     const handleSubmitInputs = async () => {
         try {
-            const database = getDatabase(undefined, 'https://plantmonitor-52b21-default-rtdb.europe-west1.firebasedatabase.app');
+            const database = getDatabase(undefined, 'linkofRealTimeDatabase');
             const defaultRef = dbRef(database, 'default');
 
             // Save user inputs to Firebase
@@ -196,7 +196,7 @@ const HomeScreen = ({ navigation }) => {
         try {
             setLoading(true);
 
-            const database = getDatabase(undefined, 'https://plantmonitor-52b21-default-rtdb.europe-west1.firebasedatabase.app');
+            const database = getDatabase(undefined, 'linkofRealTimeDatabase');
             const dataRef = query(dbRef(database, 'data'), orderByChild('timestamp'), limitToLast(50));
             const snapshot = await get(dataRef);
 
